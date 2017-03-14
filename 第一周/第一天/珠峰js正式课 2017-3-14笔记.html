@@ -1,0 +1,127 @@
+<!DOCTYPE html><html><head><title>珠峰js正式课 2017-3-14笔记</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+
+
+<h3 id="珠峰js正式课-2017-3-14笔记">珠峰js正式课 2017-3-14笔记</h3>
+
+<h3 id="git">git</h3>
+
+<ul><li>git - -version  确认版本 <br>
+    <code>$ git - -version <br>
+    git version 2.11.1.windows.1</code></li>
+<li><p>第1步、git clone  保存到本地 <br>
+                <code>$ git clone https://github.com/JasonLi0204/2017jstext.git <br>
+                Cloning into '2017jstext'... <br>
+                remote: Counting objects: 10, done. <br>
+                remote: Compressing objects: 100% (5/5), done. <br>
+                remote: Total 10 (delta 0), reused 7 (delta 0), pack-reused 0 <br>
+                Unpacking objects: 100% (10/10), done.</code></p></li>
+<li><p>第2步、git remote -v  查看本地仓库和远程仓库是否建立联系、 <br>
+                <code>$ git remote -v <br>
+                origin  https://github.com/fightkangjun/20170314JS.git (fetch) <br>
+                origin  https://github.com/fightkangjun/20170314JS.git (push)</code></p></li>
+<li>第3步、git add ./-A  工作区  –&gt;  暂存区</li>
+<li>第4步、git commit -m”(描述信息)”  暂存区  –&gt;  历史区 <br>
+                <code>$ git commit -m'添加文件夹' <br>
+                [master ec2e323] 添加文件夹 <br>
+                1 file changed, 1 insertion(+) <br>
+                create mode 100644 addDoc/addText.txt</code></li>
+<li>第5步、git push origin master  <br>
+                <code>$ git push origin master <br>
+                Logon failed, use ctrl+c to cancel basic credential prompt. <br>
+                Username for 'https://github.com/': fightkangjun <br>
+                Counting objects: 4, done. <br>
+                Delta compression using up to 4 threads. <br>
+                Compressing objects: 100% (2/2), done. <br>
+                Writing objects: 100% (4/4), 348 bytes | 0 bytes/s, done. <br>
+                Total 4 (delta 0), reused 0 (delta 0) <br>
+                To https://github.com/fightkangjun/20170314JS.git <br>
+                3a4acce..ec2e323  master -&gt; master</code></li>
+<li>git pull  把别人仓库更新到本地</li>
+<li>git log  查看仓库历史修改</li>
+<li>git remote add 变量名(比如叫teacher)  跟teacher建立联系</li>
+</ul>
+
+<p>方式二 <br>
+把老师 仓库 fork 到自己github 这样自己的github上就有了一份和老师一样的仓库 <br>
+进入老师仓库 点击 右上角 fork按钮 <br>
+然后把从老师fork的仓库 从自己github clone下来到本地 <br>
+ git clone 自己github的仓库地址</p>
+
+<p>然后 和老师 仓库建立联系 <br>
+git  remote add teacher 老师仓库地址 <br>
+以后每次和老师仓库同步</p>
+
+<p>1.更新与老师的仓库联系状态 <br>
+git remote update teacher</p>
+
+<p>2.然后再拉取(注意是拉取老师仓库的修改到本地) <br>
+git pull teacher master</p>
+
+<p>在将本地和老师同步的修改 在推送到自己github远程仓库 <br>
+git add . <br>
+git commit -m “更新老师讲义”</p>
+
+<p>推送到自己远程仓库 <br>
+git push origin master</p>
+
+
+
+<h3 id="预解释">预解释</h3>
+
+<p>基本数据类型：number、string、null、boolean、undefined。 <br>
+引用数据类型： <br>
+        对象数据类型：对象类、数组类、正则类、Date、Math等 <br>
+        函数数据类型：function</p>
+
+
+
+<h4 id="预解释-1">预解释</h4>
+
+<ul><li>预解释（变量提升）：在当前作用域中，js代码执行之前，把所有带var和function关键字的声明或者定义。</li>
+<li>浏览器加载html的时候，会提供一个供js代码运行的环境-window（全局作用域）。</li>
+<li>预解释的时候，带var的，只声明，不定义（默认值undefined）；带function的，声明加定义。代码自上而下执行。</li>
+<li>声明：var num; 或 function fn () {};</li>
+<li>通过var声明的时候，会给变量赋给一个默认值undefined。</li>
+<li>定义：赋值。num = 1; <br>
+预解释只发生在当前作用域，首先开始对window进行预解释，函数执行的时候会形成一个私有作用域，然后函数执行的时候也会进行预解释。</li>
+</ul>
+
+
+
+<h4 id="全局变量和私有变量">全局变量和私有变量</h4>
+
+<ul><li>全局变量：在全局作用域中声明的变量</li>
+<li>私有变量：在私有作用域中声明的变量（形参和预解释的变量）。 <br>
+函数执行的时候，将函数里的js代码加载运行，也需要一个供函数里的js代码执行环境 - 私有作用域。给形参赋值，进行预解释，代码自上而下执行。</li>
+</ul>
+
+
+
+<h4 id="作用域链">作用域链</h4>
+
+<p>如果在私有作用域中遇到一个变量，首先看是不是形参或者有没有在当前作用域预解释的时候声明过。如果没有声明过也不是形参，就会去上级作用域中查找，一直找到window为止。</p>
+
+<p>如何看上级作用域：看函数是在哪里定义的。</p>
+
+<p>return 下面的代码不执行，也要进行预解释；但return 右边的代码不会进行预解释，因为把它当做一个值返回出去。</p>
+
+
+
+<h3 id="linux">Linux</h3>
+
+<p>Linux常用命令：</p>
+
+<ul><li>mkdir 文件夹名称    创建文件夹</li>
+<li>mkdir -p 文件夹名称1/文件夹名称2   递归创建多个包含关系文件夹</li>
+<li>touch 文件  创建文件</li>
+<li>echo 写入内容 hello &gt; demo.txt</li>
+<li>echo 追加内容 hello &gt;&gt; demo.txt</li>
+<li>cat 文件名    查看文件</li>
+<li>cd 目录路径</li>
+<li>cd ..  切换到上级目录</li>
+<li>ls 查看当前目录下有哪些文件</li>
+<li>pwd  查看当前所在目录</li>
+</ul></div></body></html>
