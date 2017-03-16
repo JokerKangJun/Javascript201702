@@ -5,6 +5,7 @@
     <title>Title</title>
 </head>
 <body>
+<<<<<<< HEAD
 <ul>
     <li>11</li>
     <li>22</li>
@@ -19,6 +20,17 @@
     // }
     // var f = fn(10);
     // f(2);
+=======
+<script type="text/javascript">
+    function fn(n) {
+        function f(i) {
+            console.log(n + (++i));
+        }
+        return f;
+    }
+    var f = fn(10);
+    f(2);
+>>>>>>> b7df1e7e611c9039fcfec2566ca0770c90057989
 //    函数执行  形成一个私有作用域
 //    1.有没有形参 如果有形参赋值
 //    2.预解释
@@ -29,6 +41,7 @@
 
 //    in 用来检测一个属性是否属于这个对象 返回boolean 是 true 不是 false
 
+<<<<<<< HEAD
     // var obj = {name: "zhufeng"};
 
     // console.log("name" in obj);
@@ -81,6 +94,20 @@
         var a = 'hello';
     };
     alert(a);
+=======
+    var obj = {name: "zhufeng"};
+
+    console.log("name" in obj);
+    console.log("age" in obj);
+
+    if(!("num" in window)){
+        var num = '123';
+    }
+    console.log(num);
+
+//    var num = 123;
+//    console.log(window.num);
+>>>>>>> b7df1e7e611c9039fcfec2566ca0770c90057989
 </script>
 </body>
 </html>
