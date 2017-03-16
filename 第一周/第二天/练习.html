@@ -5,15 +5,20 @@
     <title>Title</title>
 </head>
 <body>
+<ul>
+    <li>11</li>
+    <li>22</li>
+    <li>33</li>
+</ul>
 <script type="text/javascript">
-    function fn(n) {
-        function f(i) {
-            console.log(n + (++i));
-        }
-        return f;
-    }
-    var f = fn(10);
-    f(2);
+    // function fn(n) {
+    //     function f(i) {
+    //         console.log(n + (++i));
+    //     }
+    //     return f;
+    // }
+    // var f = fn(10);
+    // f(2);
 //    函数执行  形成一个私有作用域
 //    1.有没有形参 如果有形参赋值
 //    2.预解释
@@ -24,18 +29,58 @@
 
 //    in 用来检测一个属性是否属于这个对象 返回boolean 是 true 不是 false
 
-    var obj = {name: "zhufeng"};
+    // var obj = {name: "zhufeng"};
 
-    console.log("name" in obj);
-    console.log("age" in obj);
+    // console.log("name" in obj);
+    // console.log("age" in obj);
 
-    if(!("num" in window)){
-        var num = '123';
-    }
-    console.log(num);
+    // if(!("num" in window)){
+    //     var num = '123';
+    // }
+    // console.log(num);
 
-//    var num = 123;
-//    console.log(window.num);
+   // var num = 123;
+   // console.log(window.num);
+
+   // var oLis = document.getElementsByTagName('li');
+   // console.log(oLis);
+   // for (var i = 0; i < oLis.length; i++) {
+   //     ;(function(i){
+   //          oLis[i].onclick = function(){
+   //              alert(i+1);
+   //          }
+   //     })(i);
+   // };
+
+   // function a(x) {
+   //      return x*2;
+   // }
+   // var a;
+   // console.log(a);  // function a(x) {
+   //                  //    return x*2;
+   //                  // }
+
+
+    // function a(x) {
+    //     return x*2;
+    // }
+    // var a = '珠峰培训';
+    // console.log(a); // 珠峰培训
+
+
+    // console.log(a); // function a(x) {
+    //                 //    return x*2;
+    //                 // }
+    // function a(x) {
+    //     return x*2;
+    // }
+    // var a = '珠峰培训';
+
+
+    if (!('a' in window)) {
+        var a = 'hello';
+    };
+    alert(a);
 </script>
 </body>
 </html>
