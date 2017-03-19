@@ -23,9 +23,9 @@
     //        name = "珠峰";
     //        age = age || this.age;
     //        this.name = arguments[0];
-    //        console.log(name, age);
+    //        console.log(name, age); // "珠峰" 5000
     //    })(name, age);//->实参:具体值  把全局下变量的值当做实参传递给私有作用域的形参=>('中国',5000)
-    //    console.log(name, age);
+    //    console.log(name, age); // "珠峰" undefined
 
 
     //    "use strict";//->使用JS中的严格模式
@@ -40,7 +40,7 @@
     //         console.log(b);//->230*/
     //
     //        //->严格模式下
-    //        //1)arguments和形参之间没有映射关系
+    //        //1)arguments 和 形参之间没有映射关系
     //        /*console.log(arguments[0]);//->12
     //         a = 120;
     //         console.log(arguments[0]);//->12
@@ -52,10 +52,10 @@
     //        //->在严格模式下会报错:Uncaught TypeError: 'caller', 'callee', and 'arguments' properties may not be accessed on strict mode functions or the arguments objects for calls to them 严格模式下不允许我们使用call或者caller属性
     //        //console.log(arguments.callee.caller);
     //    }
-    //    function sum() {
-    //        fn(12, 23, 34);
-    //    }
-    //    sum();
+       // function sum() {
+       //     fn(12, 23, 34);
+       // }
+       // sum();
 
 </script>
 </body>
