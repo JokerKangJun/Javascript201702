@@ -13,6 +13,7 @@
     var f = new Fn();
 
     console.log(f.hasOwnProperty('n'));//->TRUE
+    console.log(f.hasOwnProperty('m'));//->FALSE
 
     //->在内置类的原型上扩展一个方法：如果这个方法之前人家有，我们这样操作会把之前的覆盖掉，这样非常不好，所以我们在取方法名的时候最好加一个特殊的前缀“my”
     Object.prototype.myHasPublicProperty = function myHasPublicProperty() {
@@ -34,10 +35,18 @@
     // ->如果传递的n>m呢
     // ->如果传递的n或者m或者两者都大于最大长度呢
     // ->....
-    Array.prototype.mySlice = function mySlice() {
-        /*实现你的代码，完成和内置slice一模一样的功能：要求尽可能的考虑更多情况、不能使用数组中内置的方法*/
-        //return this.slice.apply(this, arguments); X
+    // Array.prototype.mySlice = function mySlice(n,m) {
+    //     实现你的代码，完成和内置slice一模一样的功能：要求尽可能的考虑更多情况、不能使用数组中内置的方法
+    //     //return this.slice.apply(this, arguments); X
+        
+    // }
+
+
+    function run (a,b) {
+        return a + b;
     }
+    var start = run(1,2);
+    console.log(start);
 </script>
 </body>
 </html>

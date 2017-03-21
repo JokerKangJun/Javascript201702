@@ -30,11 +30,13 @@
         /*return {name: '珠峰'};*/
     }
     var f1 = new Fn('贾向恒');
-    //    console.log(f1);//->实例：如果我们手动返回的结果是一个基本数据类型值，对最后的实例没有任何的影响
+        console.log(f1);//->实例：如果我们手动返回的结果是一个基本数据类型值，对最后的实例没有任何的影响
     //    console.log(f1);//->新的对象：如果我们手动返回的结果是一个引用数据类型的值，会把默认返回的实例给覆盖掉，此时的f1就不是类的实例了
 
     console.log('say' in f1);//->TRUE 检测SAY是否为F1的一个属性
-    console.log(f1.hasOwnProperty('say'));//->hasOwnProperty:检测属性是否为对象(实例)的私有属性 ->TRUE
+    console.log('school' in f1);//->FALSE 检测school是否为F1的一个属性
+    console.log(f1.hasOwnProperty('say'));
+    //->hasOwnProperty:检测属性是否为对象(实例)的私有属性 ->TRUE
     //->in:不管当前的属性是私有的还是公有的,只要有返回的结果就是TRUE
     //->hasOwnProperty:只有是私有的属性才会返回TRUE,即使你公有里面有这个属性,但是如果私有中没有,返回结果也是FALSE
 
@@ -42,7 +44,7 @@
     function hasPublicProperty(obj, attr) {
         return (attr in obj) && !obj.hasOwnProperty(attr);
     }
-    hasPublicProperty(f1, 'say');//->FALSE
+    console.log(hasPublicProperty(f1, 'say'));//->FALSE
 </script>
 </body>
 </html>
