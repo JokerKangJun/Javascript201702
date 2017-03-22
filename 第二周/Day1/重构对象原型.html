@@ -10,14 +10,16 @@
 
     }
 
-//    console.log(Fn.prototype) // 每个类天生自带的属性 浏览器为它开辟了一个堆内存 里面有一个天生自带的属性 constructor ,constructor 指向当前函数（类）本身
+    // console.log(Fn.prototype);
+    // 每个类天生自带的属性 浏览器为它开辟了一个堆内存 里面有一个天生自带的属性 constructor ,constructor 指向当前函数（类）本身
+
     Fn.prototype = {
         constructor: Fn,
         y: 10
     };
     var f1 = new Fn;
-    console.log(Fn.prototype);
-    console.log(f1.constructor);
+    console.log(Fn.prototype); // Object {y: 10}
+    console.log(f1.constructor); // function Fn() {}
     // 重构原型对象 自己开辟的堆内存 来存储公有的属性和方法 将浏览器天生为Fn.prototype开辟的堆内存替换掉
     // f1.constructor 由于我们为Fn.prototype新开辟了一个堆内存,所以最终通过原型链查找 找到的是Object.prototype 上constructor => Object
 
