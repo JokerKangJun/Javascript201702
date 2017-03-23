@@ -16,31 +16,32 @@
     //
     //    }
 
-    function average() {
-        var arr = [];
-        for(var i = 0; i < arguments.length; i++){ // 将类数组转化为数组
-                arr.push(arguments[i]);
-        }
-       arr.sort(function (a ,b) {
-           return a - b;
-       });
-        arr.shift();
-        arr.length--;
-        var sum = eval(arr.join('+'));
-        var num = (sum/arr.length).toFixed(2);
-        return num;
-    }
-    var argNum = average(9, 2, 8, 9, 10, 7, 6);
-    console.log(argNum);
+    // function average() {
+    //     var arr = [];
+    //     for(var i = 0; i < arguments.length; i++){ // 将类数组转化为数组
+    //             arr.push(arguments[i]);
+    //     }
+    //    arr.sort(function (a ,b) {
+    //        return a - b;
+    //    });
+    //     arr.shift();
+    //     arr.length--;
+    //     var sum = eval(arr.join('+'));
+    //     var num = (sum/arr.length).toFixed(2);
+    //     return num;
+    // }
+    // var argNum = average(9, 2, 8, 9, 10, 7, 6);
+    // console.log(argNum);
     
-    //
-    Array.prototype.mySlice = function () { // 模拟slice克隆
+
+    Array.prototype.mySlice = function mySlice() { // 模拟slice克隆
 //        在slice中克隆数组时操作 的都是this
           var newArr = [];
           for(var i = 0; i < this.length; i++){
                   var cur = this[i];
                   newArr.push(cur);
           }
+          console.log(this);
           return newArr;
 //        我们可以想一下 如果把slice中this换成我们的类数组 让后让它返回一个新数组
 //        也就是利用slice方法 将类数组转化为数组
@@ -53,6 +54,7 @@
     };
     var newArr1 = [1,2,3].mySlice();
     console.log(newArr1);
+    console.log(Array.prototype);
 
     // arguments是一个类数组 但是也可以像数组一样可以循环遍历
 //    var arr2 =  [1,2,3];

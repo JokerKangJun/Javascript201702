@@ -25,12 +25,12 @@
 //        console.log('say');
 //    };
 //    Fn.prototype.num = 666;
-////  Function.prototype.num = 888;
+// //  Function.prototype.num = 888;
 //    Object.prototype.num = 777;
 //    Fn.num = 123; // 把Fn作为一个对象 给它增加一个叫num的属性 属性值123
 //    console.log(Fn.num);
+//    var f1 = new Fn;
 //    console.dir(Fn);
-//    var f1 = new Fn
 
 // 函数的三种角色互不影响
 //    function Fn() {
@@ -50,12 +50,12 @@
 //    console.log(num); // 200
 //    console.log(f1.num); // 15
 
-    var num = 0;
+    var num = 0; // 200
     function Fn(num) {
         arguments[0] = 100;
         this.num = 200;
-        console.log(num);
-        console.log(this.num);
+        console.log(num); // 100
+        console.log(this.num); // 200
         return num;
     }
     Fn.num = 400;
@@ -63,14 +63,15 @@
     Fn.prototype.getNum = function () {
         console.log(this.num);
     };
-    var f = new Fn(num);
-    console.log(f.num);
-    f.getNum();
-    Fn.prototype.getNum();
-    console.log(num);
-    var n = Fn(num);
-    console.log(n);
-    console.log(num);
+    var f = new Fn(num); // 100 200
+    console.log(f); // Fn{num:200}
+    console.log(f.num); // 200
+    f.getNum(); // 200
+    Fn.prototype.getNum(); // 300
+    console.log(num); // 0
+    var n = Fn(num); // 100 200
+    console.log(n); // 100
+    console.log(num); // 200
 
 </script>
 </body>

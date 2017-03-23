@@ -10,10 +10,10 @@
         this.name = name;
         this.age = age;
     }
-    Student();//->普通函数执行
-    console.log(Student());
-    Student;//->函数的一个定义体(函数本身)
-    console.log(Student);
+    // Student();//->普通函数执行 
+    // console.log(Student()); // undefined
+    // Student;//->函数的一个定义体(函数本身)
+    // console.log(Student); // 函数本身 function Student(name, age) { this.name = name; this.age = age;}
 
     var st1 = new Student('陆明慧', 72);
     //var st2 = new Student;//->在构造函数模式执行的时候,如果不需要传递参数,后面的小括号可加可不加,没什么区别
