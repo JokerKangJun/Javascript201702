@@ -27,6 +27,7 @@
         /*#tables tbody tr:nth-child(even) {*/
         /*background-color: #ABFFD3;*/
         /*}*/
+        
         #tables tbody tr:hover {
             background-color: red;
         }
@@ -59,10 +60,10 @@
     // 获取操作元素
     var tables = document.getElementById('tables'); // 获取表格
     var tBody = tables.tBodies[0]; // 用表格自己的获取方式 获取tBody
-    var tBodyRows = tBody.rows; // 获取tBody里的所有tr
     var tHead = tables.tHead; // 获取表格的tHead
     var tHeadRows = tHead.rows[0]; // 获取tHead里的tr
     var tHeadThs = tHeadRows.cells; // 获取tHead里的tr的th
+    var tBodyRows = tBody.rows; // 获取tBody里的所有tr
     // 1.请求获取数据 ajax
     // (1) 创建ajax对象
     var xhr = new XMLHttpRequest;
@@ -82,7 +83,7 @@
             }
         }
     };
-    // 发送请求
+    // （4）发送请求
     xhr.send();
     // 绑定数据到页面中 （渲染页面）
     function bindData(data) {
@@ -95,7 +96,6 @@
             for (var key in curData) { // 对象中有多少组键值对 就遍历多少次 创建多少个td
                 var td = document.createElement('td');
                 var val = curData[key];
-
 //                if (key === 'sex') { //  如果key是sex 就进行处理性别
 //                    if (curData[key]) { // 男
 //                        val = '男'
@@ -103,7 +103,6 @@
 //                        val = '女'
 //                    }
 //                }
-
                 td.innerHTML = val; // 给td里添加文本内容（内容：对象里每个属性的属性值）
                 tr.appendChild(td); // 将创建好的td添加到tr里面
             }

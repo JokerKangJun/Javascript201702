@@ -59,7 +59,7 @@
      */
     function checkNick(nick) {
         var reg1 = /^[\u4e00-\u9fa5]$/,//->检测是否为中文
-                reg2 = /^\w$/;//->检测是否为数字、字母、下划线
+            reg2 = /^\w$/;//->检测是否为数字、字母、下划线
         var len = 0;
         for (var i = 0; i < nick.length; i++) {
             var cur = nick[i];
@@ -76,7 +76,7 @@
             return false;
         }
         return true;
-    }
+    };
 
     //6、年龄
     /*

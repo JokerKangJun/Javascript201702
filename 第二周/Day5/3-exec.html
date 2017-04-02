@@ -41,25 +41,24 @@
     //    console.log(ary);//->["2017", "2018", "2019", "2020", "9999"]
     //console.log(str.match(reg));//->["2017", "2018", "2019", "2020", "9999"]
 
-    //    var str = 'zhufeng2017peixun2018yangfan2019qihang2020zhidao9999';
-    //    var reg = /\d+/g;
-    //    //console.log(str.match(reg));//->["2017",...]  使用MATCH也要加g,不加只捕获第一个
-    //    RegExp.prototype.myExecAll = function myExecAll() {
-    //        var str = arguments[0] || '';//->如果第一个参数值没有传递的话,我们让其默认值为空字符串
-    ////        if (typeof arguments[0] === 'undefined') {
-    ////            str = '';
-    ////        }
-    //        //1、正则只有加G才能捕获全部,没有加的话我们只让其捕获第一个即可
-    //        if (!this.global) return this.exec(str);
-    //        var ary = [],
-    //                result = this.exec(str);
-    //        while (result) {
-    //            ary.push(result[0]);
-    //            result = this.exec(str);
+       var str = 'zhufeng2017peixun2018yangfan2019qihang2020zhidao9999';
+       var reg = /\d+/g;
+       //console.log(str.match(reg));//->["2017",...]  使用MATCH也要加g,不加只捕获第一个
+       RegExp.prototype.myExecAll = function myExecAll() {
+           var str = arguments[0] || '';//->如果第一个参数值没有传递的话,我们让其默认值为空字符串
+    //        if (typeof arguments[0] === 'undefined') {
+    //            str = '';
     //        }
-    //        return ary.length === 0 ? null : ary;
-    //    };
-    //    console.log(reg.myExecAll('asdfg'));
+           //1、正则只有加G才能捕获全部,没有加的话我们只让其捕获第一个即可
+           if (!this.global) return this.exec(str);
+           var ary = [], result = this.exec(str);
+           while (result) {
+               ary.push(result[0]);
+               result = this.exec(str);
+           }
+           return ary.length === 0 ? null : ary;
+       };
+       console.log(reg.myExecAll('2017'));
 
 
     //    var str = 'zhufeng2017peixun2018yangfan2019qihang2020zhidao9999';
